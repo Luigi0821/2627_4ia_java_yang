@@ -1,10 +1,18 @@
 public class SimulaMath {
 
+    /* 
+      Costruttore della classe SimulaMath.
+      Viene chiamato quando creiamo un oggetto di questa classe. 
+    */
     public SimulaMath() {
 		
 	}
 
-    // Svolge il valore assoluto
+    /* 
+      Calcola il valore assoluto di un numero.
+      Se il numero è negativo, lo trasforma in positivo.
+      Se è già positivo, lo restituisce senza modificarlo. 
+    */
 	public double abs(double x) {
 		if (x < 0) {
 			return -x;
@@ -12,7 +20,12 @@ public class SimulaMath {
 		return x;
 	}
 
-	// Toglie i decimali sempre uguale alla base, per i numeri negativi devo fare -1
+	/* 
+	  Calcola il valore intero inferiore di un numero (floor).
+	  Converte il numero in intero eliminando i decimali.
+	  Se il numero è negativo e la conversione ha eliminato una parte decimale,
+	  sottrae 1 per ottenere l'intero inferiore corretto. 
+	*/
 	public double floor(double x) {
 		int n = (int) x;
 		if (x < n) {
@@ -21,7 +34,12 @@ public class SimulaMath {
 		return n;
 	}
 
-	// Arrotonda un numero all'intero più vicino 
+	/* 
+	  Arrotonda un numero all'intero più vicino.
+	  Se la parte decimale è maggiore o uguale a 0.5, arrotonda per eccesso.
+	  Se la parte decimale è minore di -0.5, arrotonda per difetto.
+	  Negli altri casi restituisce la parte intera del numero. 
+	*/
 	public double round(double x) {
         double risultato;
         if (x % 1 >= 0.5) {
@@ -34,19 +52,27 @@ public class SimulaMath {
         return risultato;
     }
 
-    // Calcola la potenza
+    /* 
+      Calcola la potenza di un numero.
+      x rappresenta la base e y rappresenta l'esponente.
+      Il ciclo si ripete tante volte quanto vale il valore assoluto di y.
+      A ogni ciclo moltiplica il risultato per la base x.
+      Alla fine restituisce il risultato. 
+    */
     public double pow(double x, int y) { 
         double risultato = 1;
         for (int i = 0; i < abs(y); i++) {
              risultato = risultato * x;
-        }
-        if (y < 0) {
-           return 1 / risultato;
-        }  
+        } 
         return risultato;
     }
 
-    // Calcola la radice quadrata
+    /* 
+      Calcola la radice quadrata di un numero.
+      Parte da 0 e aumenta il risultato di 0.1 a ogni ciclo.
+      Continua finché il quadrato del risultato è minore del numero iniziale.
+      Quando il quadrato raggiunge o supera il numero, restituisce il risultato. 
+    */
     public double sqrt(double x) {
         double risultato = 0;
           while (risultato * risultato < x) {
